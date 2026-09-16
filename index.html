@@ -1,0 +1,1800 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>آشیل | Ashil Art Café</title>
+
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #080808;
+            --black2: #0e0e0e;
+            --card: #131313;
+            --burgundy: #64152b;
+            --burgundy2: #8d2846;
+            --cream: #eee5d7;
+            --muted: #9c958d;
+            --line: rgba(255,255,255,.08);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--black);
+            color: var(--cream);
+            font-family: "Vazirmatn", Tahoma, sans-serif;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* =========================
+           SCROLLBAR
+        ========================= */
+
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #080808;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--burgundy);
+            border-radius: 20px;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 78px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            background: rgba(8,8,8,.72);
+            backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid rgba(255,255,255,.06);
+
+            z-index: 9999;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            font-family: "Cormorant Garamond", serif;
+            font-size: 29px;
+            font-weight: 600;
+            letter-spacing: 3px;
+        }
+
+        .logo-mark {
+            width: 35px;
+            height: 35px;
+
+            border: 1px solid var(--burgundy2);
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: var(--burgundy2);
+            font-size: 18px;
+        }
+
+        .logo span {
+            color: var(--burgundy2);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 34px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            position: relative;
+            color: #bcb6af;
+            font-size: 14px;
+            transition: .3s;
+        }
+
+        .nav-links a::after {
+            content: "";
+
+            position: absolute;
+            bottom: -8px;
+            right: 0;
+
+            width: 0;
+            height: 1px;
+
+            background: var(--burgundy2);
+
+            transition: .3s;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 50% 45%,
+                    rgba(100,21,43,.22),
+                    transparent 30%
+                ),
+                #080808;
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 600px;
+            height: 600px;
+
+            border-radius: 50%;
+
+            background: var(--burgundy);
+
+            opacity: .08;
+
+            filter: blur(120px);
+
+            animation: heroGlow 7s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroGlow {
+
+            from {
+                transform: scale(.8);
+                opacity: .06;
+            }
+
+            to {
+                transform: scale(1.15);
+                opacity: .14;
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-small {
+            color: var(--burgundy2);
+            font-size: 13px;
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(75px, 13vw, 170px);
+
+            line-height: .8;
+
+            font-weight: 500;
+
+            letter-spacing: 8px;
+
+            margin-bottom: 35px;
+        }
+
+        .hero h1 span {
+            color: var(--burgundy2);
+        }
+
+        .hero-description {
+            color: #99938d;
+
+            font-size: 16px;
+
+            line-height: 2;
+
+            max-width: 520px;
+
+            margin: auto;
+
+            margin-bottom: 38px;
+        }
+
+        .hero-button {
+            display: inline-flex;
+
+            align-items: center;
+            gap: 12px;
+
+            padding: 14px 30px;
+
+            border: 1px solid rgba(141,40,70,.7);
+
+            border-radius: 50px;
+
+            transition: .4s;
+
+            font-size: 14px;
+        }
+
+        .hero-button:hover {
+            background: var(--burgundy);
+            border-color: var(--burgundy);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(100,21,43,.25);
+        }
+
+        .scroll {
+            position: absolute;
+            bottom: 35px;
+
+            color: #555;
+
+            font-size: 11px;
+
+            letter-spacing: 3px;
+
+            animation: scrollMove 2s infinite;
+        }
+
+        @keyframes scrollMove {
+
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(7px);
+            }
+        }
+
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        section {
+            padding: 120px 8%;
+        }
+
+        .section-label {
+            text-align: center;
+
+            color: var(--burgundy2);
+
+            font-size: 12px;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            text-align: center;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 52px;
+
+            font-weight: 500;
+
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+            margin-bottom: 70px;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            position: relative;
+
+            background: var(--black2);
+
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .about-content {
+            max-width: 780px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about-text {
+            color: #aaa39b;
+
+            font-size: 16px;
+
+            line-height: 2.6;
+        }
+
+        .about-symbol {
+            width: 55px;
+            height: 55px;
+
+            margin: 0 auto 30px;
+
+            border: 1px solid rgba(141,40,70,.6);
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: var(--burgundy2);
+
+            font-size: 20px;
+        }
+
+
+        /* =========================
+           MENU
+        ========================= */
+
+        .menu {
+            background: #090909;
+        }
+
+        .category {
+            max-width: 1250px;
+
+            margin: 0 auto 105px;
+        }
+
+        .category:last-child {
+            margin-bottom: 0;
+        }
+
+        .category-header {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 22px;
+
+            margin-bottom: 38px;
+        }
+
+        .category-line {
+            width: 75px;
+            height: 1px;
+
+            background: linear-gradient(
+                to right,
+                transparent,
+                var(--burgundy2)
+            );
+        }
+
+        .category-line:last-child {
+            background: linear-gradient(
+                to left,
+                transparent,
+                var(--burgundy2)
+            );
+        }
+
+        .category-title {
+            font-size: 25px;
+            font-weight: 500;
+        }
+
+
+        /* =========================
+           CATEGORY ICONS
+        ========================= */
+
+        .category-icon {
+            width: 58px;
+            height: 58px;
+
+            position: relative;
+
+            border-radius: 50%;
+
+            background: #111;
+
+            border: 1px solid rgba(141,40,70,.5);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 23px;
+
+            box-shadow:
+                0 0 30px rgba(100,21,43,.12);
+        }
+
+
+        /* coffee */
+
+        .coffee-icon::before,
+        .coffee-icon::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 3px;
+            height: 18px;
+
+            top: -15px;
+
+            border-radius: 50%;
+
+            background: #ddd;
+
+            opacity: 0;
+
+            animation: steam 2.2s infinite;
+        }
+
+        .coffee-icon::before {
+            right: 19px;
+        }
+
+        .coffee-icon::after {
+            right: 31px;
+            animation-delay: .9s;
+        }
+
+        @keyframes steam {
+
+            0% {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            40% {
+                opacity: .6;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-13px);
+            }
+        }
+
+
+        /* tea */
+
+        .tea-icon {
+            animation: teaFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes teaFloat {
+
+            0%,100% {
+                transform: translateY(0) rotate(0);
+            }
+
+            50% {
+                transform: translateY(-5px) rotate(-2deg);
+            }
+        }
+
+
+        /* drinks */
+
+        .drink-icon .bubble {
+            position: absolute;
+
+            width: 5px;
+            height: 5px;
+
+            border-radius: 50%;
+
+            background: #ddd;
+
+            bottom: 10px;
+
+            opacity: 0;
+
+            animation: bubbles 2.3s infinite;
+        }
+
+        .bubble:nth-child(1) {
+            right: 17px;
+        }
+
+        .bubble:nth-child(2) {
+            right: 29px;
+            animation-delay: .7s;
+        }
+
+        .bubble:nth-child(3) {
+            right: 38px;
+            animation-delay: 1.3s;
+        }
+
+        @keyframes bubbles {
+
+            0% {
+                opacity: 0;
+                transform: translateY(0);
+            }
+
+            40% {
+                opacity: .8;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-24px);
+            }
+        }
+
+
+        /* dessert */
+
+        .dessert-icon {
+            animation: dessertGlow 2.5s infinite;
+        }
+
+        @keyframes dessertGlow {
+
+            0%,100% {
+                box-shadow:
+                    0 0 0 rgba(141,40,70,0);
+            }
+
+            50% {
+                box-shadow:
+                    0 0 30px rgba(141,40,70,.25);
+            }
+        }
+
+
+        /* =========================
+           CARDS
+        ========================= */
+
+        .menu-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 22px;
+        }
+
+        .menu-card {
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #171717,
+                    #101010
+                );
+
+            border: 1px solid rgba(255,255,255,.07);
+
+            border-radius: 16px;
+
+            transition:
+                transform .45s,
+                border-color .45s,
+                box-shadow .45s;
+
+            cursor: pointer;
+        }
+
+        .menu-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            right: 0;
+
+            width: 100%;
+            height: 1px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    var(--burgundy2),
+                    transparent
+                );
+
+            opacity: 0;
+
+            transition: .4s;
+        }
+
+        .menu-card:hover {
+
+            transform:
+                translateY(-10px);
+
+            border-color:
+                rgba(141,40,70,.65);
+
+            box-shadow:
+                0 25px 60px rgba(0,0,0,.5);
+        }
+
+        .menu-card:hover::before {
+            opacity: 1;
+        }
+
+
+        /* IMAGE */
+
+        .card-image {
+
+            height: 225px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle,
+                    #34131f,
+                    #101010 70%
+                );
+        }
+
+        .card-image::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(8,8,8,.65),
+                    transparent 60%
+                );
+
+            pointer-events: none;
+        }
+
+        .card-image img {
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition:
+                transform .8s,
+                filter .8s;
+        }
+
+        .menu-card:hover
+        .card-image img {
+
+            transform: scale(1.08);
+
+            filter: brightness(1.08);
+        }
+
+        .placeholder {
+
+            position: absolute;
+
+            inset: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 52px;
+
+            opacity: .5;
+
+            transition: .5s;
+        }
+
+        .menu-card:hover
+        .placeholder {
+
+            transform: scale(1.1);
+
+            opacity: .75;
+        }
+
+
+        /* CARD CONTENT */
+
+        .card-content {
+            padding: 22px;
+        }
+
+        .card-content h3 {
+
+            font-size: 18px;
+
+            font-weight: 500;
+
+            margin-bottom: 9px;
+        }
+
+        .card-content p {
+
+            color: #777;
+
+            font-size: 12px;
+
+            line-height: 2;
+
+            min-height: 48px;
+        }
+
+        .card-bottom {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-top: 18px;
+        }
+
+        .price {
+
+            color: #d98da4;
+
+            font-size: 15px;
+
+            font-weight: 600;
+        }
+
+        .arrow {
+
+            width: 30px;
+            height: 30px;
+
+            border: 1px solid #333;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            color: #777;
+
+            transition: .4s;
+        }
+
+        .menu-card:hover .arrow {
+
+            background: var(--burgundy);
+
+            border-color: var(--burgundy);
+
+            color: white;
+
+            transform: translateX(-4px);
+        }
+
+
+        /* =========================
+           QUOTE
+        ========================= */
+
+        .quote {
+
+            position: relative;
+
+            padding: 150px 20px;
+
+            text-align: center;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    rgba(10,5,7,.92),
+                    rgba(10,5,7,.92)
+                );
+        }
+
+        .quote::before {
+
+            content: "“";
+
+            position: absolute;
+
+            top: 40px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            font-family: Georgia, serif;
+
+            font-size: 180px;
+
+            color: var(--burgundy);
+
+            opacity: .1;
+        }
+
+        .quote p {
+
+            position: relative;
+
+            max-width: 800px;
+
+            margin: auto;
+
+            font-family:
+                "Cormorant Garamond",
+                serif;
+
+            font-size: 39px;
+
+            line-height: 1.8;
+
+            color: #ddd;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact {
+
+            text-align: center;
+
+            background: var(--black2);
+
+            border-top: 1px solid var(--line);
+        }
+
+        .contact-box {
+
+            max-width: 700px;
+
+            margin: auto;
+
+            padding: 40px;
+
+            border: 1px solid rgba(255,255,255,.06);
+
+            border-radius: 18px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.025),
+                    rgba(255,255,255,.005)
+                );
+        }
+
+        .contact-info {
+
+            color: #999;
+
+            line-height: 2.8;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            padding: 35px 20px;
+
+            text-align: center;
+
+            color: #555;
+
+            background: #060606;
+
+            font-size: 12px;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 1050px) {
+
+            .menu-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            .navbar {
+                height: 65px;
+                padding: 0 20px;
+            }
+
+            .logo {
+                font-size: 23px;
+            }
+
+            .logo-mark {
+                width: 30px;
+                height: 30px;
+            }
+
+            .nav-links {
+                gap: 13px;
+            }
+
+            .nav-links a {
+                font-size: 11px;
+            }
+
+            .hero h1 {
+                font-size: 75px;
+                letter-spacing: 4px;
+            }
+
+            .hero-small {
+                font-size: 10px;
+                letter-spacing: 3px;
+            }
+
+            .hero-description {
+                font-size: 13px;
+                padding: 0 20px;
+            }
+
+            section {
+                padding: 85px 18px;
+            }
+
+            .section-title {
+                font-size: 42px;
+            }
+
+            .section-subtitle {
+                margin-bottom: 50px;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .category {
+                margin-bottom: 80px;
+            }
+
+            .category-title {
+                font-size: 21px;
+            }
+
+            .category-line {
+                width: 35px;
+            }
+
+            .card-image {
+                height: 230px;
+            }
+
+            .quote {
+                padding: 110px 25px;
+            }
+
+            .quote p {
+                font-size: 27px;
+            }
+
+            .contact-box {
+                padding: 30px 15px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+    <a href="#home" class="logo">
+
+        <div class="logo-mark">
+            A
+        </div>
+
+        ASHIL <span>CAFÉ</span>
+
+    </a>
+
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="#home">خانه</a>
+        </li>
+
+        <li>
+            <a href="#about">درباره ما</a>
+        </li>
+
+        <li>
+            <a href="#menu">منو</a>
+        </li>
+
+        <li>
+            <a href="#contact">تماس</a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="hero-small">
+            ASHIL ART CAFÉ
+        </div>
+
+        <h1>
+            ASHIL
+            <span>.</span>
+        </h1>
+
+        <p class="hero-description">
+            قهوه، هنر و لحظه‌هایی که ارزش ماندن دارند.
+        </p>
+
+        <a href="#menu" class="hero-button">
+
+            مشاهده منو
+
+            <span>←</span>
+
+        </a>
+
+    </div>
+
+
+    <div class="scroll">
+        SCROLL ↓
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="about" id="about">
+
+    <div class="about-content">
+
+        <div class="about-symbol">
+            ✦
+        </div>
+
+        <div class="section-label">
+            OUR STORY
+        </div>
+
+        <h2 class="section-title">
+            درباره آشیل
+        </h2>
+
+        <p class="section-subtitle">
+            جایی فراتر از یک فنجان قهوه
+        </p>
+
+        <p class="about-text">
+
+            آشیل فضایی برای تجربه‌ی قهوه،
+            گفتگو، موسیقی و هنر است.
+            جایی که می‌توان چند دقیقه از شلوغی
+            روز فاصله گرفت و لحظه‌ای برای خود ساخت.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MENU
+========================= -->
+
+<section class="menu" id="menu">
+
+    <div class="section-label">
+        ASHIL MENU
+    </div>
+
+    <h2 class="section-title">
+        منوی آشیل
+    </h2>
+
+    <p class="section-subtitle">
+        برای مشاهده جزئیات، روی هر محصول کلیک کنید
+    </p>
+
+
+    <!-- COFFEE -->
+
+    <div class="category">
+
+        <div class="category-header">
+
+            <div class="category-line"></div>
+
+            <div class="category-icon coffee-icon">
+                ☕
+            </div>
+
+            <h3 class="category-title">
+                قهوه
+            </h3>
+
+            <div class="category-line"></div>
+
+        </div>
+
+
+        <div class="menu-grid">
+
+
+            <a href="product.html?item=espresso"
+               class="menu-card">
+
+                <div class="card-image">
+
+                    <img
+                        src="images/espresso.jpg"
+                        alt="اسپرسو"
+                    >
+
+                    <div class="placeholder">
+                        ☕
+                    </div>
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>
+                        اسپرسو
+                    </h3>
+
+                    <p>
+                        قهوه‌ای غلیظ و کلاسیک با عطر فوق‌العاده
+                    </p>
+
+                    <div class="card-bottom">
+
+                        <span class="price">
+                            ۸۰,۰۰۰ تومان
+                        </span>
+
+                        <span class="arrow">
+                            ←
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            <a href="product.html?item=americano"
+               class="menu-card">
+
+                <div class="card-image">
+
+                    <img
+                        src="images/americano.jpg"
+                        alt="آمریکانو"
+                    >
+
+                    <div class="placeholder">
+                        ☕
+                    </div>
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>
+                        آمریکانو
+                    </h3>
+
+                    <p>
+                        اسپرسو با آب داغ، سبک و خوش‌عطر
+                    </p>
+
+                    <div class="card-bottom">
+
+                        <span class="price">
+                            ۹۰,۰۰۰ تومان
+                        </span>
+
+                        <span class="arrow">
+                            ←
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            <a href="product.html?item=cappuccino"
+               class="menu-card">
+
+                <div class="card-image">
+
+                    <img
+                        src="images/cappuccino.jpg"
+                        alt="کاپوچینو"
+                    >
+
+                    <div class="placeholder">
+                        ☕
+                    </div>
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>
+                        کاپوچینو
+                    </h3>
+
+                    <p>
+                        اسپرسو، شیر و فوم شیر
+                    </p>
+
+                    <div class="card-bottom">
+
+                        <span class="price">
+                            ۱۱۰,۰۰۰ تومان
+                        </span>
+
+                        <span class="arrow">
+                            ←
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            <a href="product.html?item=latte"
+               class="menu-card">
+
+                <div class="card-image">
+
+                    <img
+                        src="images/latte.jpg"
+                        alt="لاته"
+                    >
+
+                    <div class="placeholder">
+                        ☕
+                    </div>
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>
+                        لاته
+                    </h3>
+
+                    <p>
+                        اسپرسو با شیر گرم و بافت نرم
+                    </p>
+
+                    <div class="card-bottom">
+
+                        <span class="price">
+                            ۱۱۵,۰۰۰ تومان
+                        </span>
+
+                        <span class="arrow">
+                            ←
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- TEA -->
+
+    <div class="category">
+
+        <div class="category-header">
+
+            <div class="category-line"></div>
+
+            <div class="category-icon tea-icon">
+                🍵
+            </div>
+
+            <h3 class="category-title">
+                دمنوش و چای
+            </h3>
+
+            <div class="category-line"></div>
+
+        </div>
+
+
+        <div class="menu-grid">
+
+
+            <a href="product.html?item=herbal"
+               class="menu-card">
+
+                <div class="card-image">
+
+                    <img
+                        src="images/herbal-tea.jpg"
+                        alt="دمنوش"
+                    >
+
+                    <div class="placeholder">
+                        🌿
+                    </div>
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>
+                        دمنوش مخصوص آشیل
+                    </h3>
+
+                    <p>
+                        ترکیبی خوش‌عطر از گیاهان معطر
+                    </p>
+
+                    <div class="card-bottom">
+
+                        <span class="price">
+                            ۹۰,۰۰۰ تومان
+                        </span>
+
+                        <span class="arrow">
+                            ←
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            <a href="product.html?item=green"
+               class="menu-card">
+
+                <div class="card-image">
+
+                    <img
+                        src="images/green-tea.jpg"
+                        alt="چای سبز"
+                    >
+
+                    <div class="placeholder">
+                        🍃
+                    </div>
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>
+                        چای سبز
+                    </h3>
+
+                    <p>
+                        چای سبز با طعمی سبک و طبیعی
+                    </p>
+
+                    <div class="card-bottom">
+
+                        <span class="price">
+                            ۷۵,۰۰۰ تومان
+                        </span>
+
+                        <span class="arrow">
+                            ←
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- DRINKS -->
+
+    <div class="category">
+
+        <div class="category-header">
+
+            <div class="category-line"></div>
+
+            <div class="category-icon drink-icon">
+
+                🥤
+
+                <span class="bubble"></span>
+                <span class="bubble"></span>
+                <span class="bubble"></span>
+
+            </div>
+
+            <h3 class="category-title">
+                نوشیدنی
+            </h3>
+
+            <div class="category-line"></div>
+
+        </div>
+
+
+        <div class="menu-grid">
+
+
+            <a href="product.html?item=lemonade"
+               class="menu-card">
+
+                <div class="card-image">
+
+                    <img
+                        src="images/lemonade.jpg"
+                        alt="لیموناد"
+                    >
+
+                    <div class="placeholder">
+                        🍋
+                    </div>
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>
+                        لیموناد
+                    </h3>
+
+                    <p>
+                        لیموناد خنک و تازه
+                    </p>
+
+                    <div class="card-bottom">
+
+                        <span class="price">
+                            ۱۰۰,۰۰۰ تومان
+                        </span>
+
+                        <span class="arrow">
+                            ←
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            <a href="product.html?item=mojito"
+               class="menu-card">
+
+                <div class="card-image">
+
+                    <img
+                        src="images/mojito.jpg"
+                        alt="موهیتو"
+                    >
+
+                    <div class="placeholder">
+                        🍃
+                    </div>
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>
+                        موهیتو
+                    </h3>
+
+                    <p>
+                        نعناع، لیمو و نوشیدنی خنک
+                    </p>
+
+                    <div class="card-bottom">
+
+                        <span class="price">
+                            ۱۱۰,۰۰۰ تومان
+                        </span>
+
+                        <span class="arrow">
+                            ←
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            <a href="product.html?item=icedcoffee"
+               class="menu-card">
+
+                <div class="card-image">
+
+                    <img
+                        src="images/iced-coffee.jpg"
+                        alt="آیس کافی"
+                    >
+
+                    <div class="placeholder">
+                        🧊
+                    </div>
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>
+                        آیس کافی
+                    </h3>
+
+                    <p>
+                        قهوه سرد و خنک
+                    </p>
+
+                    <div class="card-bottom">
+
+                        <span class="price">
+                            ۱۲۰,۰۰۰ تومان
+                        </span>
+
+                        <span class="arrow">
+                            ←
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+
+    
+
+<!-- =========================
+     QUOTE
+========================= -->
+
+<section class="quote">
+
+    <p>
+        «گاهی یک فنجان قهوه،
+        تمام چیزی است که برای یک لحظه خوب لازم داری.»
+    </p>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section class="contact" id="contact">
+
+    <div class="section-label">
+        FIND US
+    </div>
+
+    <h2 class="section-title">
+        آشیل کجاست؟
+    </h2>
+
+    <p class="section-subtitle">
+        منتظر دیدنتان هستیم
+    </p>
+
+
+    <div class="contact-box">
+
+        <div class="contact-info">
+
+            <p>
+               گرگان، نبش بعثت 14/1
+            </p>
+
+            <p>
+                📞 تلفن: ۰۹xxxxxxxxx
+            </p>
+
+            <p>
+                📷 اینستاگرام: @ashil.cafe
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    ASHIL ART CAFÉ
+    <br><br>
+    © 2026 — All Rights Reserved
+
+</footer>
+
+
+<script>
+
+    const images =
+        document.querySelectorAll(".card-image img");
+
+    images.forEach(img => {
+
+        img.onerror = function () {
+
+            this.style.display = "none";
+
+        };
+
+    });
+
+</script>
+
+
+</body>
+
+</html>

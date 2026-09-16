@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>محصول | Ashil Café</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #0b0b0b;
+            --dark: #121212;
+            --burgundy: #64152b;
+            --burgundy-light: #8b2340;
+            --cream: #eee4d5;
+            --gray: #aaa;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top right, rgba(100,21,43,.22), transparent 35%),
+                var(--black);
+            color: var(--cream);
+            font-family: Tahoma, Arial, sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        nav {
+            height: 70px;
+            padding: 0 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #222;
+            background: rgba(10,10,10,.95);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: var(--burgundy-light);
+        }
+
+        .back {
+            color: #bbb;
+            transition: .3s;
+        }
+
+        .back:hover {
+            color: white;
+        }
+
+        .product-page {
+            min-height: calc(100vh - 70px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 70px 20px;
+        }
+
+        .product {
+            width: 950px;
+            max-width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: #121212;
+            border: 1px solid #292929;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 70px rgba(0,0,0,.5);
+        }
+
+        .product-image {
+            min-height: 500px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #251018, #101010);
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            min-height: 500px;
+            object-fit: cover;
+        }
+
+        .placeholder {
+            position: absolute;
+            font-size: 100px;
+            opacity: .7;
+        }
+
+        .product-info {
+            padding: 55px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .category {
+            color: #a94c68;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-size: 25px;
+            color: #d8899e;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .description {
+            color: #aaa;
+            line-height: 2.2;
+            font-size: 16px;
+            margin-bottom: 35px;
+        }
+
+        .back-button {
+            display: inline-block;
+            width: fit-content;
+            padding: 13px 28px;
+            border: 1px solid var(--burgundy-light);
+            border-radius: 30px;
+            transition: .3s;
+        }
+
+        .back-button:hover {
+            background: var(--burgundy);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 0 20px;
+            }
+
+            .product {
+                grid-template-columns: 1fr;
+            }
+
+            .product-image {
+                min-height: 300px;
+            }
+
+            .product-image img {
+                min-height: 300px;
+            }
+
+            .product-info {
+                padding: 35px 25px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<nav>
+
+    <div class="logo">
+        ASHIL <span>CAFÉ</span>
+    </div>
+
+    <a href="index.html#menu" class="back">
+        ← بازگشت به منو
+    </a>
+
+</nav>
+
+
+<div class="product-page">
+
+    <div class="product">
+
+        <div class="product-image">
+
+            <img id="productImage" src="" alt="">
+
+            <div class="placeholder" id="placeholder">
+                ☕
+            </div>
+
+        </div>
+
+
+        <div class="product-info">
+
+            <div class="category" id="category">
+                قهوه
+            </div>
+
+            <h1 id="productName">
+                محصول
+            </h1>
+
+            <div class="price" id="productPrice">
+                ۰ تومان
+            </div>
+
+            <p class="description" id="productDescription">
+                توضیحات محصول
+            </p>
+
+            <a href="index.html#menu" class="back-button">
+                ← بازگشت به منو
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    const products = {
+
+        espresso: {
+            name: "اسپرسو",
+            category: "قهوه",
+            price: "۸۰,۰۰۰ تومان",
+            image: "images/espresso.jpg",
+            icon: "☕",
+            description: "یک شات اسپرسوی غلیظ و خوش‌عطر با طعمی عمیق و کلاسیک؛ انتخابی ساده برای دوستداران واقعی قهوه."
+        },
+
+        americano: {
+            name: "آمریکانو",
+            category: "قهوه",
+            price: "۹۰,۰۰۰ تومان",
+            image: "images/americano.jpg",
+            icon: "☕",
+            description: "ترکیبی از اسپرسو و آب داغ با طعمی متعادل‌تر و سبک‌تر."
+        },
+
+        cappuccino: {
+            name: "کاپوچینو",
+            category: "قهوه",
+            price: "۱۱۰,۰۰۰ تومان",
+            image: "images/cappuccino.jpg",
+            icon: "☕",
+            description: "اسپرسو، شیر گرم و فوم شیر که در کنار هم یک نوشیدنی نرم و خوش‌عطر می‌سازند."
+        },
+
+        latte: {
+            name: "لاته",
+            category: "قهوه",
+            price: "۱۱۵,۰۰۰ تومان",
+            image: "images/latte.jpg",
+            icon: "☕",
+            description: "اسپرسوی خوش‌عطر همراه با شیر گرم و بافتی نرم و خامه‌ای."
+        },
+
+        herbal: {
+            name: "دمنوش مخصوص آشیل",
+            category: "دمنوش",
+            price: "۹۰,۰۰۰ تومان",
+            image: "images/herbal-tea.jpg",
+            icon: "🌿",
+            description: "ترکیبی خوش‌عطر از گیاهان معطر که برای یک لحظه آرام و دلنشین انتخاب شده است."
+        },
+
+        green: {
+            name: "چای سبز",
+            category: "چای",
+            price: "۷۵,۰۰۰ تومان",
+            image: "images/green-tea.jpg",
+            icon: "🍃",
+            description: "چای سبز با طعمی سبک، طبیعی و عطر دلنشین."
+        },
+
+        lemonade: {
+            name: "لیموناد",
+            category: "نوشیدنی",
+            price: "۱۰۰,۰۰۰ تومان",
+            image: "images/lemonade.jpg",
+            icon: "🍋",
+            description: "لیموناد تازه و خنک با طعمی ترش و شیرین؛ مناسب یک روز گرم."
+        },
+
+        mojito: {
+            name: "موهیتو",
+            category: "نوشیدنی",
+            price: "۱۱۰,۰۰۰ تومان",
+            image: "images/mojito.jpg",
+            icon: "🍃",
+            description: "ترکیبی خنک از لیمو و نعناع با طعمی تازه و سرحال‌کننده."
+        },
+
+        icedcoffee: {
+            name: "آیس کافی",
+            category: "نوشیدنی",
+            price: "۱۲۰,۰۰۰ تومان",
+            image: "images/iced-coffee.jpg",
+            icon: "🧊",
+            description: "قهوه سرد و خنک برای کسانی که طعم قهوه را در یک نوشیدنی سرد ترجیح می‌دهند."
+        },
+
+        
+
+    };
+
+
+    const params = new URLSearchParams(window.location.search);
+
+    const item = params.get("item");
+
+    const product = products[item];
+
+
+    if (product) {
+
+        document.getElementById("productName").textContent = product.name;
+
+        document.getElementById("category").textContent = product.category;
+
+        document.getElementById("productPrice").textContent = product.price;
+
+        document.getElementById("productDescription").textContent = product.description;
+
+        document.getElementById("placeholder").textContent = product.icon;
+
+        document.getElementById("productImage").src = product.image;
+
+        document.getElementById("productImage").alt = product.name;
+
+        document.title = product.name + " | Ashil Café";
+
+
+        document.getElementById("productImage").onerror = function () {
+
+            this.style.display = "none";
+
+        };
+
+    }
+
+</script>
+
+
+</body>
+
+</html>
